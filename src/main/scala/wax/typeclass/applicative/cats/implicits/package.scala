@@ -1,6 +1,7 @@
 package wax.typeclass.applicative.cats
 
 import cats.Applicative
+import cats.kernel.Monoid
 import cats.syntax.functor._
 import wax.typeclass.functor.cats.implicits._
 
@@ -27,6 +28,14 @@ package object implicits {
     override def pure[A](x: A): List[A] = ???
 
     override def ap[A, B](ff: List[A => B])(fa: List[A]): List[B] = ???
+  }
+
+  implicit def tupleApplicative[C: Monoid]: Applicative[(C, ?)] = new Applicative[Tuple2[C, ?]] {
+    override def map[A, B](fa: (C, A))(f: A => B): (C, B) = tupleFunctor.map(fa)(f)
+
+    override def pure[A](x: A): (C, A) = ???
+
+    override def ap[A, B](ff: (C, A => B))(fa: (C, A)): (C, B) = ???
   }
 
   implicit def functionApplicative[T]: Applicative[Function[T, ?]] = new Applicative[Function[T, ?]] {

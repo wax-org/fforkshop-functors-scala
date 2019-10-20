@@ -15,6 +15,10 @@ package object implicits {
     override def map[A, B](fa: List[A])(f: A => B): List[B] = ???
   }
 
+  implicit def tupleFunctor[C]: Functor[(C, ?)] = new Functor[Tuple2[C, ?]] {
+    override def map[A, B](fa: (C, A))(f: A => B): (C, B) = ???
+  }
+
   implicit def functionFunctor[A]: Functor[Function[A, ?]] = new Functor[Function[A, ?]] {
     override def map[B, C](fa: A => B)(f: B => C): A => C = ???
   }
