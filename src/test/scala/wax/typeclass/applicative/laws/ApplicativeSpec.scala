@@ -1,11 +1,11 @@
-package wax.typeclass.applicative.laws.cats
+package wax.typeclass.applicative.laws
 
 import cats._
 import cats.laws.discipline.ApplicativeTests
-import cats.tests.CatsSuite
-import wax.typeclass.applicative.cats.implicits._
 import cats.laws.discipline.SemigroupalTests.Isomorphisms
 import cats.laws.discipline.SemigroupalTests.Isomorphisms.invariant
+import cats.tests.CatsSuite
+import wax.typeclass.applicative.implicits._
 
 class ApplicativeSpec extends CatsSuite {
   checkAll("Option.ApplicativeLaws", ApplicativeTests[Option](optionApplicative).applicative[Int, Int, String])

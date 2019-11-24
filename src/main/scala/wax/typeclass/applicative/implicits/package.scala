@@ -1,9 +1,9 @@
-package wax.typeclass.applicative.cats
+package wax.typeclass.applicative
 
 import cats.Applicative
 import cats.kernel.Monoid
 import cats.syntax.functor._
-import wax.typeclass.functor.cats.implicits._
+import wax.typeclass.functor.implicits._
 
 package object implicits {
   implicit val optionApplicative: Applicative[Option] = new Applicative[Option] {

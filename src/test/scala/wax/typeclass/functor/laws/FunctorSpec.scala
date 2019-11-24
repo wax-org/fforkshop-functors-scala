@@ -1,9 +1,9 @@
-package wax.typeclass.functor.laws.cats
+package wax.typeclass.functor.laws
 
 import cats._
 import cats.laws.discipline.FunctorTests
 import cats.tests.CatsSuite
-import wax.typeclass.functor.cats.implicits._
+import wax.typeclass.functor.implicits._
 
 class FunctorSpec extends CatsSuite {
   checkAll("Option.FunctorLaws", FunctorTests[Option](optionFunctor).functor[Int, Int, String])
