@@ -4,7 +4,7 @@ import org.scalacheck.Prop.forAll
 import org.scalacheck.{Arbitrary, Gen, Properties}
 import wax.exercise.parser.ConfigParser._
 
-object ConfigParserSpec extends Properties("Parser") {
+object ConfigParserSpec extends Properties("ConfigParser") {
   property("config parser should parse config") = forAll { cfg: Config =>
     val stream = Seq[String](
       cfg.appPort.toString,
