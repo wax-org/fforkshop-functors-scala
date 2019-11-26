@@ -142,7 +142,7 @@ object Parser {
    */
   def int: Parser[Int] = ???
 
-  /** Task 8. Implement parser specific string.
+  /** Task 8. Implement parser for specific string.
    *
    * Example:
    *
@@ -152,12 +152,12 @@ object Parser {
    * Remember that you have the following helpers at your disposal:
    *   - char parser
    *   - recursion
-   *   - fmap/map from Functor
+   *   - fmap (map) from Functor
    *   - pure from Applicative
    *   - ap from Applicative
    *   - *> from Applicative (runs the parser, but discards result)
    *
-   * You don't need to use all of that, everything depends on your solution.
+   * You might not need to use all of that, everything depends on your solution.
    *
    * Run wax.exercise.parser.ParserStringSpec and make sure that it's green.
    */
@@ -213,7 +213,7 @@ object ConfigParser {
    *   - *> from Applicative (runs the parser, but discards result)
    *   - mapN - this is your friend in Scala!
    *
-   * You don't need to use all of that, everything depends on your solution.
+   * You might not need to use all of that, everything depends on your solution.
    */
   val config: Parser[Config] = ???
 }
