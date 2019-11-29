@@ -136,7 +136,8 @@ object ParserSpecUtils {
       println("")
       println("Test failure!")
       println(s"Input: '$input'")
-      println(s"Result: ${parser.parse(input)} != $v")
+      println(s"Expected: $v")
+      println(s"Result:   ${parser.parse(input)}")
     }
     equal
   }
