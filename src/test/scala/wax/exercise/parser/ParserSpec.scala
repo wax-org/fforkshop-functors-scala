@@ -48,9 +48,16 @@ object ParserApplicativeSpec extends Properties("Parser.Applicative") {
     compareParsers(p1, p2)(input)
   }
 
-  // This test checks that your Applicative instance not only lawful, but the one that we need.
+  // These tests check that your Applicative instance not only lawful, but the one that we need.
   property("input is not thrown away by pure") = forAll { (x: AdequateString, input: AdequateString) =>
     checkResult(Applicative[Parser].pure[String](x.value), input.value, x.value, input.value)
+  }
+
+  property("input is not duplicated by ap") = forAll { (x: AdequateString, y: AdequateString) =>
+    val input = x.value + y.value
+    val p1: Parser[String] = string(x.value)
+    val p2: Parser[String] = string(y.value)
+    checkResult(p1.map((a: String) => (b: String) => a + b).ap(p2), input, input, "")
   }
 }
 
