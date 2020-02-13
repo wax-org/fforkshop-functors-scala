@@ -53,11 +53,11 @@ object ParserApplicativeSpec extends Properties("Parser.Applicative") {
     checkResult(Applicative[Parser].pure[String](x.value), input.value, x.value, input.value)
   }
 
-  property("input is not duplicated by ap") = forAll { (x: AdequateString, y: AdequateString) =>
-    val input = x.value + y.value
-    val p1: Parser[String] = string(x.value)
-    val p2: Parser[String] = string(y.value)
-    checkResult(p1.map((a: String) => (b: String) => a + b).ap(p2), input, input, "")
+  property("input is not duplicated by ap") = forAll { (x: Char, y: Char) =>
+    val input = s"$x$y"
+    val p1: Parser[Char] = char(x)
+    val p2: Parser[Char] = char(y)
+    checkResult(p1.map((a: Char) => (b: Char) => s"$a$b").ap(p2), input, input, "")
   }
 }
 
