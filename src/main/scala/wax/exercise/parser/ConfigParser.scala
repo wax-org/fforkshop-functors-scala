@@ -126,7 +126,7 @@ object Parser {
     }
   }
 
-  /** Task 7. Implement parser for positive integers.
+  /** Task 7. Implement parser for integers.
    *
    * Remember that you have the following combinators at your disposal:
    *   - many[A] - that repeats parser zero or more times and returns the list of parsed values
