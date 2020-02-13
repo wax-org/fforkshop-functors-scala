@@ -57,7 +57,8 @@ object ParserApplicativeSpec extends Properties("Parser.Applicative") {
     val input = s"$x$y"
     val p1: Parser[Char] = char(x)
     val p2: Parser[Char] = char(y)
-    checkResult(p1.map((a: Char) => (b: Char) => s"$a$b").ap(p2), input, input, "")
+    val f = (a: Char) => (b: Char) => s"$a$b"
+    checkResult(f.pure[Parser].ap(p1).ap(p2), input, input, "")
   }
 }
 
