@@ -63,7 +63,7 @@ object Parser {
     override def ap[A, B](ff: ParserResult[A => B])(fa: ParserResult[A]): ParserResult[B] = ???
   }
 
-  /** Task 4. Implement Applicative instance for ParserResult.
+  /** Task 4. Implement Applicative instance for Parser.
    *
    * Run wax.exercise.parser.ParserApplicativeSpec and make sure that it's green. Note that it also relies on
    * the proper implementation of Functor instance.
