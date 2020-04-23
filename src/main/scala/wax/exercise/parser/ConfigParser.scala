@@ -33,7 +33,6 @@ case class Parser[A](parse: String => ParserResult[A]) {
 
 object Parser {
 
-
   /** Task 1. Implement Functor instance for ParserResult.
    *
    * Run wax.exercise.parser.ParserResultFunctorSpec and make sure that it's green.
@@ -104,7 +103,7 @@ object Parser {
 
   def letterOrDigit: Parser[Char] = satisfy(_.isLetterOrDigit)
 
-  /** Task 6. Implement parser for positive integers.
+  /** Task 6. Implement parser for non-negative integers.
    *
    * Remember that you have the following combinators at your disposal:
    *   - many[A] - that repeats parser zero or more times and returns the list of parsed values
